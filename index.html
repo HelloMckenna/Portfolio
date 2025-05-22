@@ -30,10 +30,9 @@
 									</p>
 								</div>
 
-								<article class="item thumb span-1">
-									<h2>Am Abú TG4</h2>
-									<a href="images/thumbs/Am_Abu1.png" class="image image-hover">
-										<img src="images/fulls/Am_Abu1.png" alt="Thumbnail for Am Abú TG4">
+								<a href="images/fulls/Am_Abu1.png" class="image image-hover">
+								  <img src="images/thumbs/Am_Abu1.png" data-hover-src="images/thumbs/Am_Abu2.png" alt="Am Abú TG4 project screenshot" loading="lazy">
+								</a>
 									</a>
 								</article>
 
@@ -139,6 +138,20 @@
             				this.src = 'images/thumbs/Am_Abu2.png'; // Restore original image instantly
         			});
     </script>
-
+			<script>
+			document.querySelectorAll('.image-hover img').forEach(img => {
+			  const originalSrc = img.src;
+			  const hoverSrc = img.getAttribute('data-hover-src'); // Set this as a custom attribute in HTML
+			
+			  img.addEventListener('mouseover', function() {
+			    if (hoverSrc) this.src = hoverSrc;
+			  });
+			  img.addEventListener('mouseout', function() {
+			    this.src = originalSrc;
+			  });
+			});
+			</script>
+</body>
+</html>
 	</body>
 </html>
